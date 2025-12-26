@@ -4,26 +4,27 @@ A full-stack notes application with user authentication, built with Django REST 
 
 ## Project Structure
 .
-├── backend/ # Django REST Framework backend
-│ ├── backend/ # Django project settings
-│ ├── notes/ # Notes app
-│ ├── manage.py
-│ ├── requirements.txt
-│ └── Dockerfile
-├── frontend/ # Next.js frontend
-│ ├── app/
-│ ├── components/
-│ ├── lib/
-│ ├── package.json
-│ └── Dockerfile
-└── k8s/ # Kubernetes manifests
-├── db-secret.yaml
-├── db-deployment.yaml
-├── db-service.yaml
-├── backend-deployment.yaml
-├── backend-service.yaml
-├── frontend-deployment.yaml
-└── frontend-service.yaml
+├── backend/
+│   ├── backend/
+│   ├── notes/
+│   ├── manage.py
+│   ├── requirements.txt
+│   └── Dockerfile
+├── frontend/
+│   ├── app/
+│   ├── components/
+│   ├── lib/
+│   ├── package.json
+│   └── Dockerfile
+└── k8s/
+    ├── db-secret.yaml
+    ├── db-deployment.yaml
+    ├── db-service.yaml
+    ├── backend-deployment.yaml
+    ├── backend-service.yaml
+    ├── frontend-deployment.yaml
+    └── frontend-service.yaml
+
 
 ## Features
 
@@ -44,13 +45,13 @@ A full-stack notes application with user authentication, built with Django REST 
 ```
 # Backend
 cd backend
-docker build -t nikicha2/notes-backend:v1 .
-docker push nikicha2/notes-backend:v1
+docker build -t <username>/notes-backend:v1 .
+docker push <username>/notes-backend:v1
 
 # Frontend
 cd frontend
-docker build -t nikicha2/notes-frontend:v1 .
-docker push nikicha2/notes-frontend:v1
+docker build -t <username>/notes-frontend:v1 .
+docker push <username>/notes-frontend:v1
 ```
 ### 2. Apply Kubernetes Manifests
 ```
