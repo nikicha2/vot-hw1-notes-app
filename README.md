@@ -3,6 +3,7 @@
 A full-stack notes application with user authentication, built with Django REST Framework, Next.js, and PostgreSQL, deployed on Kubernetes.
 
 ## Project Structure
+```
 .
 ├── backend/
 │   ├── backend/
@@ -24,7 +25,7 @@ A full-stack notes application with user authentication, built with Django REST 
     ├── backend-service.yaml
     ├── frontend-deployment.yaml
     └── frontend-service.yaml
-
+```
 
 ## Features
 
