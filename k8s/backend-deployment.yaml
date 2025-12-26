@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notes-backend
+  labels:
+    app: notes-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: notes-backend
+  template:
+    metadata:
+      labels:
+        app: notes-backend
+    spec:
+      containers:
+      - name: backend
+        image: nikicha2/notes-backend:v1
+        ports:
+        - containerPort: 8000
+        env:
+        - name: DB_NAME
+          valueFrom:
+            secretKeyRef:
+              name: db-secret
+              key: POSTGRES_DB
+        - name: DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: db-secret
+              key: POSTGRES_USER
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: db-secret
+              key: POSTGRES_PASSWORD
+        - name: DB_HOST
+          value: notes-db
+        - name: DB_PORT
+          value: "5432"
+        - name: DEBUG
+          value: "True"
+        - name: SECRET_KEY
+          value: "django-insecure-dev-key-change-in-production"
+
+

@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notes-frontend
+  labels:
+    app: notes-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: notes-frontend
+  template:
+    metadata:
+      labels:
+        app: notes-frontend
+    spec:
+      containers:
+      - name: frontend
+        image: nikicha2/notes-frontend:v1
+        ports:
+        - containerPort: 3000
+        env:
+        - name: NEXT_PUBLIC_API_URL
+          value: "/api"
